@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   map.c                                              :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: mschroed <mschroed@student.42.fr>          +#+  +:+       +#+        */
+/*   By: jgabelho <jgabelho@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/01/03 10:41:39 by mschroed          #+#    #+#             */
-/*   Updated: 2019/01/06 19:22:35 by mschroed         ###   ########.fr       */
+/*   Updated: 2019/01/06 21:47:33 by jgabelho         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,19 +14,16 @@
 #include <stdlib.h>
 #include "fillit.h"
 
-char	**map_maker(char **mapper, int size)
+void	map_free(t_map *map)
 {
-	int		i;
+	int	i;
 
 	i = -1;
-	mapper = malloc(sizeof(char*) * (size + 1));
-	mapper[size] = NULL;
-	while (++i < size)
-	{
-		mapper[i] = ft_strnew(size);
-		mapper[i] = ft_memset(mapper[i], '.', size);
-	}
-	return (mapper);
+	if (!map)
+		return ;
+	while(++i < map->size)
+		ft_strdel(&(map->map[i]));
+	ft_memdel((void **)&map);
 }
 
 char	**map(int size)
