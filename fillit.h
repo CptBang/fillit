@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   fillit.h                                           :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: mschroed <mschroed@student.42.fr>          +#+  +:+       +#+        */
+/*   By: jgabelho <jgabelho@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/12/28 20:42:25 by mschroed          #+#    #+#             */
-/*   Updated: 2019/01/06 18:46:07 by mschroed         ###   ########.fr       */
+/*   Updated: 2019/01/07 14:37:10 by jgabelho         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -39,7 +39,6 @@ t_mino				*mino_oc(char *file);
 t_mino				*fnew_mino(void const *data, size_t size);
 void				lst_append(t_mino **head, char *buf);
 int					val_mino(t_mino *head);
-char				**map(int size);
 int					place(t_map *mappie, t_mino *minos, int x, int y);
 int					solved(t_mino *minos);
 int					mino_len(t_mino *lst);
@@ -48,6 +47,8 @@ int					piece_reset(t_map *mappie, t_mino *mino, int x, int y);
 int					placer(t_map *mappie, t_mino *mino, int x, int y);
 int					map_check(t_map *mappie, t_mino *mino);
 t_map				*map_new(int size);
+void				map_free(t_map *map);
 void				printn2d(char **s, size_t num);
+void				del_minos(t_mino **list);
 
 #endif

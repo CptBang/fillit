@@ -1,12 +1,12 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   map.c                                              :+:      :+:    :+:   */
+/*   map_free.c                                         :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: jgabelho <jgabelho@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/01/03 10:41:39 by mschroed          #+#    #+#             */
-/*   Updated: 2019/01/06 21:47:33 by jgabelho         ###   ########.fr       */
+/*   Updated: 2019/01/07 13:25:57 by jgabelho         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -24,12 +24,4 @@ void	map_free(t_map *map)
 	while(++i < map->size)
 		ft_strdel(&(map->map[i]));
 	ft_memdel((void **)&map);
-}
-
-char	**map(int size)
-{
-	char	**mapper;
-
-	mapper = map_maker(mapper, size);
-	return (mapper);
 }

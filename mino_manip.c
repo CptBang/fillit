@@ -1,16 +1,18 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   mino_len.c                                         :+:      :+:    :+:   */
+/*   mino_manip.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: mschroed <mschroed@student.42.fr>          +#+  +:+       +#+        */
+/*   By: jgabelho <jgabelho@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/12/09 13:15:27 by jgabelho          #+#    #+#             */
-/*   Updated: 2019/01/05 20:33:50 by mschroed         ###   ########.fr       */
+/*   Updated: 2019/01/07 14:39:50 by jgabelho         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "fillit.h"
+#include "libft.h"
+#include <stdlib.h>
 
 int		mino_len(t_mino *lst)
 {
@@ -25,4 +27,26 @@ int		mino_len(t_mino *lst)
 		lst = lst->next;
 	}
 	return (i);
+}
+
+void	del_minos(t_mino **list)
+{
+	t_mino		*tmp;
+	int			i;
+
+	if (!list || !*list)
+		return ;
+	i = 0;
+	while (*list)
+	{
+		tmp = (*list)->next;
+		while ((*list)->crd[i])
+		{
+			ft_strdel(&(*list)->crd[i]);
+			i++;
+		}
+		free(*list);
+		(*list) = tmp;
+	}
+	*list = NULL;
 }
